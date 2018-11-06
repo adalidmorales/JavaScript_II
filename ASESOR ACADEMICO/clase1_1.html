@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            Sección 2729
+        </title>
+    </head>
+    <body>
+        <a href="#" onclick="cambiarTitulo()">Cambiar Titulo</a>|
+        <a href="#" onclick="cambiarColor()">Cambiar Color</a> |
+        <a href="#" onclick="crearNuevoContenido()">Nuevo</a> |
+        <a href="#" onclick="agregarContenido()">Agregar</a>
+        <script>
+            function crearNuevoContenido(){
+                window.document.writeln("<h1>Esto es nuevo</h1>");
+                window.document.writeln("<p>esto es un P</p>")
+                window.document.close();
+            }
+            function agregarContenido(){
+                window.document.body.innerHTML+=
+                    "<p>Esta se agrega al final</p>"+
+                    "<a href='#'>Prueba</a>"+
+                    "<img src='asdfa.jpg' width='250' />";
+            }
+            function cambiarColor(){
+                let color=prompt("Introduzca el color:");
+                window.document.bgColor=color;
+            }
+            function cambiarTitulo(){
+                let titulo=prompt("Introduzca el titulo:");
+                window.document.title=titulo;
+            }
+        </script>
+    </body>
+</html>
