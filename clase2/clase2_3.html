@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script src="lib_validaciones.js"></script>
+    <script>
+        function convertirMayusculas(name){
+            var x = document.getElementById(name);
+                if (x!=undefined){
+                x.value=x.value.toUpperCase();
+                x.style.backgroundColor="white"
+                }                
+        }
+        function convertirMinusculas(name){
+            var x = document.getElementById(name);
+                if (x!=undefined){
+                x.value=x.value.toLowerCase();
+                x.style.backgroundColor="gold"
+                }   
+        }
+        function validarBusqueda(){ 
+            if (document.form2.q.value!="") 
+                document.form2.submit(); 
+            }
+        function validarIniciar(){
+            if (document.form1.nombre.value==""){
+                alert("El nombre es obligatorio");
+                document.form1.nombre.focus();
+                return false;
+        }else
+            if (document.form1.usuario.value==""){
+                alert("El Usuario es obligatorio")
+                document.form1.usuario.focus();
+                return false;
+        }else
+                return confirm("Seguro?");
+        }
+    </script>
+    <h2>Buscar</h2>
+        <form name="form2" action="http://google.com/search">
+            <input 
+            type="text" 
+            name="q"
+            onkeypress="return validar_numero(event)">
+            <input type="button" 
+                    onclick="validarBusqueda()" 
+                    value="Buscar">
+        </form>
+    
+    <h2>Iniciar Sesión</h2>
+        <form name="form1" 
+                action="" 
+                onsubmit="return validarIniciar()">
+            <input 
+                    type="text"
+                    id="idnombre" 
+                    name="nombre"
+                    onfocus="convertirMinusculas('idnombre')" 
+                    placeholder="Nombre"
+                    onblur="convertirMayusculas('idnombre')" /> <br>
+    
+                <input 
+                    type="text" 
+                    id="usuario"
+                    name="usuario"
+                    onfocus="convertirMinusculas('usuario')" 
+                    placeholder="Usuario"
+                    onblur="convertirMayusculas('usuario')" /> <br>
+    
+                <input type="password" name="clave" placeholder="clave" />(opcional) <br><br>
+                <input type="submit" name="iniciar" value="Iniciar Sesión" />
+            </form>
+</body>
+</html>
